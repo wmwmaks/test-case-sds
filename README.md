@@ -18,20 +18,27 @@
     передавая access_token в запросах для защищённых маршрутов.
    
 ---Примеры cURL запросов---
-Замени ACCESS_TOKEN на действительный токен доступа, который был получен от сервера авторизации. 
+
+Запрос на получение Токена
+
+curl -X POST http://localhost:port/oauth/token \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=password&username=your_username&password=your_password"
+
+!Замени ACCESS_TOKEN на действительный токен доступа, который был получен от сервера авторизации.!
 
 Получить список студентов по ID (POST запрос): 
-curl -X POST http://localhost:8080/api/v1/students/search-students \
+curl -X POST http://localhost:port/api/v1/students/search-students \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -H "Content-Type: application/json" \
      -d '[1, 2, 3]' 
 
 Получить информацию о студенте по ID (GET запрос)
-curl -X GET http://localhost:8080/api/v1/students/1 \
+curl -X GET http://localhost:port/api/v1/students/1 \
      -H "Authorization: Bearer ACCESS_TOKEN"
 
 Создать нового студента (PUT запрос)
-curl -X PUT http://localhost:8080/api/v1/students \
+curl -X PUT http://localhost:port/api/v1/students \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -H "Content-Type: application/json" \
      -d '{
@@ -43,7 +50,7 @@ curl -X PUT http://localhost:8080/api/v1/students \
          }'
 
 Обновить данные студента (POST запрос)
-curl -X POST http://localhost:8080/api/v1/students/1 \
+curl -X POST http://localhost:port/api/v1/students/1 \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -H "Content-Type: application/json" \
      -d '{
@@ -55,5 +62,5 @@ curl -X POST http://localhost:8080/api/v1/students/1 \
          }'
 
 Удалить студента (DELETE запрос)
-curl -X DELETE http://localhost:8080/api/v1/students/1 \
+curl -X DELETE http://localhost:port/api/v1/students/1 \
      -H "Authorization: Bearer ACCESS_TOKEN"

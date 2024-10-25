@@ -1,4 +1,4 @@
-package org.example.sdstest.service;
+package org.example.sdstest.service.student;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
