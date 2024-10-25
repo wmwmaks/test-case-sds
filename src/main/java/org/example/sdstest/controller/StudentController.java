@@ -3,7 +3,7 @@ package org.example.sdstest.controller;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.example.sdstest.dto.StudentDto;
-import org.example.sdstest.service.StudentService;
+import org.example.sdstest.service.student.StudentService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +22,7 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    @PostMapping("/search-students")
+    @PostMapping
     public List<StudentDto> getStudents(@RequestBody List<String> ids) {
         return studentService.getStudentsByIds(ids);
     }

@@ -1,4 +1,4 @@
-package org.example.sdstest.service;
+package org.example.sdstest.service.student;
 
 import org.example.sdstest.dto.StudentDto;
 
