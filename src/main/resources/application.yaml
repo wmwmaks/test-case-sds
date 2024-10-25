@@ -1,9 +1,17 @@
-spring.application.name=sdstest
+spring:
+  data:
+    uri: mongodb://localhost:27017/studentdbsdstest
+    database: studentdbsdstest
 
+  security:
+    oauth2:
+      resourceserver:
+        issuer-uri:  # OAuth2.0 provider URL
+        jwk-set-uri: # URL to get JWKS keys
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/studentdb
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
+  server:
+    port: # Port on which the application will run
 
-spring.security.oauth2.resourceserver.jwt.issuer-uri=<issuer-uri>
+  logging:
+    level:
+      root: info
