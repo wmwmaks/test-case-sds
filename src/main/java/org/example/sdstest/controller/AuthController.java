@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.sdstest.dto.LoginRequest;
 import org.example.sdstest.service.token.TokenService;
 import org.example.sdstest.service.user.CustomUserDetailsService;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +25,11 @@ public class AuthController {
     public String login(@RequestBody LoginRequest request) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
-        String accessToken = tokenService.generateAccessToken(userDetails.getUsername());
+        if (!userDetails.getPassword().equals(request.getPassword())) {
+            throw new BadCredentialsException("Invalid password");
+        }
 
+        String accessToken = tokenService.generateAccessToken(userDetails.getUsername());
         return "Access Token: " + accessToken;
     }
 

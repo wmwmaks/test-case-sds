@@ -21,9 +21,12 @@
 
 Запрос на получение Токена
 
-curl -X POST http://localhost:port/oauth/token \
--H "Content-Type: application/x-www-form-urlencoded" \
--d "grant_type=password&username=your_username&password=your_password"
+curl -X POST http://localhost:port/api/v1/auth/login \
+    -H "Content-Type: application/json" \
+    -d '{
+    "username": "your_username",
+    "password": "your_password"
+    }'
 
 !Замени ACCESS_TOKEN на действительный токен доступа, который был получен от сервера авторизации.!
 
