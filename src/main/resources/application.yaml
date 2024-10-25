@@ -1,0 +1,9 @@
+spring.application.name=sdstest
+
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/studentdb
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+
+spring.security.oauth2.resourceserver.jwt.issuer-uri=<issuer-uri>
